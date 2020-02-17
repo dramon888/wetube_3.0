@@ -1,0 +1,22 @@
+{
+  "name": "wetube_3.0",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with Vanilla and NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dramon4/wetube_3.0.git"
+  },
+  "author": "Dramon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dramon4/wetube_3.0/issues"
+  },
+  "homepage": "https://github.com/dramon4/wetube_3.0#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
