@@ -1,5 +1,10 @@
 // const express = require("express");
 import express from "express";
+import morgan from "morgan";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import helmet from "helmet";
+
 const app = express();
 
 const PORT = 4000;
@@ -11,11 +16,11 @@ const handleHome = (req, res) => res.send("Hello My HomPage");
 
 const handleProfile = (req, res) => res.send("Hi my ProfilePage");
 
-const betweenHome = (req, res, next) => {
-  console.log("나는 미들웨어야!!!!!잘 기억해 위치도 중요해!");
-  next();
-};
-app.use(betweenHome);
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(helmet());
+app.use(morgan("dev"));
 
 app.get("/", handleHome);
 app.get("/profile", handleProfile);
