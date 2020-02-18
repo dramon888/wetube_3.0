@@ -11,6 +11,12 @@ const handleHome = (req, res) => res.send("Hello My HomPage");
 
 const handleProfile = (req, res) => res.send("Hi my ProfilePage");
 
+const betweenHome = (req, res, next) => {
+  console.log("나는 미들웨어야!!!!!잘 기억해 위치도 중요해!");
+  next();
+};
+app.use(betweenHome);
+
 app.get("/", handleHome);
 app.get("/profile", handleProfile);
 
