@@ -1,11 +1,12 @@
 header.header
     .header__column
-        h1.header__title WeTube
-        i.fab.fa-youtube
+        h1.header__title #{siteName}
+        a(href=routes.home)
+            i.fab.fa-youtube
     .header__column
         ul
             li
-                a(href='#') Join
+                a(href=routes.join) Join
             li
-                a(href='#') Login
+                a(href=routes.login) Login
         
