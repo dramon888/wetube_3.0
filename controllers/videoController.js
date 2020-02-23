@@ -1,6 +1,14 @@
 export const home = (req, res) => res.render("home", { pageTitle: "Home" });
-export const search = (req, res) =>
-  res.render("search", { pageTitle: "Search" });
+export const search = (req, res) => {
+  //   const searchingBy = req.query.term; es5 문법
+  const {
+    query: { term: searchingBy }
+  } = req;
+
+  // searchingBy
+  res.render("search", { pageTitle: "Search", searchingBy: searchingBy });
+};
+
 export const videos = (req, res) =>
   res.render("videos", { pageTitle: "videos" });
 export const upload = (req, res) =>
