@@ -5,7 +5,9 @@ block content
     .search__header
          h3 Searching For #{searchingBy}
     .search__videos
-         each item in videos
+        if videos.length === 0
+            h5 Videos Undifined
+        each item in videos
             +videoBlock({
                 id: item.id,
                 title:item.title,
