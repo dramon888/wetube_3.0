@@ -11,15 +11,15 @@ import {
 import { uploadVideo } from "../localsMiddleware";
 
 const videoRouter = express.Router();
-//Add
+// Add
 videoRouter.get(routes.upload, getUpload);
 videoRouter.post(routes.upload, uploadVideo, postUpload);
-//video Detail
+// video Detail
 videoRouter.get(routes.videoDetail(), videoDetail);
-//Update
+// Update
 videoRouter.get(routes.editVideo(), getEditVideo);
 videoRouter.post(routes.editVideo(), postEditVideo);
-//Delete
+// Delete
 videoRouter.get(routes.deleteVideo(), deleteVideo);
 
 export default videoRouter;

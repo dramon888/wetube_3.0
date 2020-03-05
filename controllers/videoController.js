@@ -3,11 +3,11 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
-    res.render("home", { pageTitle: "Home", videos });
+    res.render("home", { pageTitle: "Home", videos: [] });
   }
 };
 
@@ -20,8 +20,7 @@ export const search = (req, res) => {
   // searchingBy
   res.render("search", {
     pageTitle: "Search",
-    searchingBy: searchingBy,
-    videos: videos
+    searchingBy
   });
 };
 export const getUpload = (req, res) => {
@@ -33,7 +32,9 @@ export const postUpload = async (req, res) => {
     file: { path }
   } = req;
   console.log("바디의 제목,상세설명:", title, description, "파일경로:", path);
-  //To Do: Upload and save video
+
+  // To Do: Upload and save video
+
   const newVideo = await Video.create({
     fileUrl: path,
     title,
