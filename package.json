@@ -4,7 +4,7 @@
   "description": "Cloning Youtube with Vanilla and NodeJS",
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js",
-    "dev:assets": "set WEBPACK_ENV=development&&webpack",
+    "dev:assets": "set WEBPACK_ENV=development&&webpack -w",
     "build:assets": "set WEBPACK_ENV=production&&webpack"
   },
   "repository": {
@@ -20,8 +20,10 @@
   "dependencies": {
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
+    "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.4",
     "autoprefixer": "^9.7.4",
+    "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "css-loader": "^3.4.2",
