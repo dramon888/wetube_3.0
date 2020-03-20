@@ -38,7 +38,7 @@ export const postUpload = async (req, res) => {
     body: { title, description },
     file: { path }
   } = req;
-  console.log("바디의 제목,상세설명:", title, description, "파일경로:", path);
+  // console.log("바디의 제목,상세설명:", title, description, "파일경로:", path);
 
   // To Do: Upload and save video
 
@@ -47,7 +47,7 @@ export const postUpload = async (req, res) => {
     title,
     description
   });
-  console.log(newVideo);
+  // console.log(newVideo);
   res.redirect(routes.videoDetail(newVideo.id));
 };
 
@@ -58,7 +58,7 @@ export const videoDetail = async (req, res) => {
   try {
     const video = await Video.findById(id);
     res.render("videoDetail", { pageTitle: video.title, video });
-    console.log(video);
+    // console.log(video);
   } catch (error) {
     console.log(error);
     res.render(routes.home);

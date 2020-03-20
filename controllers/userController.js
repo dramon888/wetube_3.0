@@ -40,14 +40,15 @@ export const postLogin = passport.authenticate("local", {
 export const githubLogin = passport.authenticate("github");
 
 export const githubLoginCallback = async (_, __, profile, cb) => {
-  console.log(profile, cb);
+  // console.log(profile, cb);
   const {
-    _json: { id, avatar_url, name, email }
+    _json: { id, avatar_url: avatarUrl, name, email }
   } = profile;
   try {
     const user = await User.findOne({ email });
     if (user) {
       user.githubId = id;
+      user.avatarUrl = avatarUrl;
       user.save();
       return cb(null, user);
     }
@@ -55,7 +56,7 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
       email,
       name,
       githubId: id,
-      avatarUrl: avatar_url
+      avatarUrl
     });
     return cb(null, newUser);
   } catch (error) {
@@ -70,6 +71,11 @@ export const logout = (req, res) => {
   // To Do: Process Log Out
   req.logout();
   res.redirect(routes.home);
+};
+
+export const getMe = (req, res) => {
+  res.render("userDetail", { pagetTitle: "userDetail", user: req.user });
+  console.log(req.user.avatarUrl);
 };
 
 export const userDetail = (req, res) =>
