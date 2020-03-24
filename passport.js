@@ -26,7 +26,7 @@ passport.use(
     {
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL: `https://3e4d4582.ngrok.io${routes.facebookCallback}`,
+      callbackURL: `https://30b8b4fc.ngrok.io${routes.facebookCallback}`,
       profileFields: ["id", "displayName", "photos", "email"],
       scope: ["public_profile", "email"]
     },
